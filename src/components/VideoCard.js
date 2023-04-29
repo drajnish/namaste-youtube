@@ -1,9 +1,6 @@
 import React from 'react';
 
 const VideoCard = ({ info }) => {
-  if (!info) {
-    return <div>Loading...</div>;
-  }
   const { snippet, statistics } = info;
   const { channelTitle, title, thumbnails } = snippet;
 
@@ -19,6 +16,14 @@ const VideoCard = ({ info }) => {
         <li>{channelTitle}</li>
         <li>{statistics.viewCount} views</li>
       </ul>
+    </div>
+  );
+};
+
+export const AdVideoCard = ({ info }) => {
+  return (
+    <div className="border border-red-500">
+      {info && <VideoCard info={info} />}
     </div>
   );
 };
